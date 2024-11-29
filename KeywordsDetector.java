@@ -21,6 +21,19 @@ public class KeywordsDetector {
     // Iterates through all the sentences.
     // If a sentence contains one or more of the kewords, prints it.
     public static void detectAndPrint(String[] sentences, String[] keywords) {
-        // Replace this comment with your code
+        for (int i = 0; i < sentences.length; i++) {
+            boolean checkContain = false;
+            for (int j = 0; j < keywords.length; j++) {
+                if (checkKeyword(sentences[i], keywords[j])) checkContain = true;
+            }
+            if (checkContain) System.out.println(sentences[i]);
+        }
+    }
+
+    public static boolean checkKeyword (String str, String keyword) {
+        str = MyString.lowerCase(str);
+        keyword = MyString.lowerCase(keyword);
+        if (MyString.contains(str, keyword)) return true;
+        return false;
     }
 }
